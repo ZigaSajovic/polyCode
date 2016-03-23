@@ -5,7 +5,7 @@ Draw a simple polygon to test. _polyCode_ will enforce symmetries allowed by the
 
 Objects drawn by the moving “poly”,  are compiled in the same manner after detachment by trail-less movement, or change of location (_setLoc(posX, posY)_ call).
 
-Built-in commands:
+####Built-in commands:
 
 penDown() -> movement leaves a trail
 
