@@ -8,17 +8,29 @@ Objects drawn by the moving “poly”,  are compiled in the same manner after d
 Built-in commands:
 
 penDown() -> movement leaves a trail
+
 penUp() -> movement is trail-less
+
 move(length) -> translates by length in current direction
+
 rotate(degrees) -> rotates 
+
 rename(oldName, newName) -> renames a compiled function
+
 setLoc(posX, posY) -> sets location
+
 setRot(degree) -> sets rotation by degrees
+
 setRot(vecX,vecY) -> sets rotation by direction vector
+
 setColor(color) -> sets drawing color
+
 resetColor() -> resets to default color
+
 setColorVertex(color) -> sets color of vertices 
+
 printAll() -> prints all compiled functions
+
 clear() -> clears the terminal
 
 ![demoImageToCode](/demos/demoImageToCode.gif?raw=true "demoImageToCode")
