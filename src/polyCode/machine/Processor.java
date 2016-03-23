@@ -115,5 +115,5 @@ public class Processor {
 		}
 		else Display.printTerminal("Error: no such command:! "+c.type+" !\n");
 	}
-	
+	 
 }

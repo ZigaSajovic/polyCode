@@ -330,23 +330,23 @@ public class Poly extends DrawPad{
 		rotatePoly(degree);
 	}
 	
-	public void movePoly(double length){
+	public void movePoly(double length){	
+		int newX=location[0]+ (int)(unitDirVec[0]*length);
+		int newY=location[1]+ (int)(unitDirVec[1]*length);
+		if(newX<0)newX=30;
+		else if(newX-30>getWidth())newX=getWidth()-30;
+		if(newY<0)newY=30;
+		else if(newY-30>getHeight())newY=getHeight()-30;
+		double dist=Math.sqrt(Math.pow((newX-location[0]), 2)+Math.pow((newY-location[1]), 2));
 		if(penDown){
 			if(current==null) createPoly();
-			current.lengths.add(length);
+			current.lengths.add(dist);
 			current.colors.add(draw);
 			current.unitVectors.add(Util.copyTab(unitDirVec));
 		}
 		else if(!penDown&&current!=null)detachPoly();
-		
-		int newX=location[0]+ (int)(unitDirVec[0]*length);
-		int newY=location[1]+ (int)(unitDirVec[1]*length);
-		if(newX<0)location[0]=30;
-		else if(newX-30>getWidth())location[0]=getWidth()-30;
-		else location[0]=newX;
-		if(newY<0)location[1]=30;
-		else if(newY-30>getHeight())location[1]=getHeight()-30;
-		else location[1]=newY;
+		location[0]=newX;
+		location[1]=newY;
 	}
 	
 	public void setCompile(boolean setting){

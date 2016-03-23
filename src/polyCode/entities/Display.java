@@ -21,6 +21,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.text.DefaultCaret;
 
 import polyCode.handlers.PolyPrune;
 import polyCode.machine.Parser;
@@ -41,6 +42,7 @@ public class Display {
 	boolean beenDone =false;
 	static JTextArea jText;
 	JTextField input;
+	String welcome="polyCode version 1.0\n\nAI driven programming language, compiling images to code and code to images.\nDraw a simple polygon to test; polyCode will enforce symmetries allowed by the preservation of structure, employing them to use loops during compilation. Compiled function will be displayed on the terminal, in the form “objectN(posX, posY, rotDeg)”, where N stands for the object's ID. All such functions may be called on.\nObject drawn by the moving “poly”,  are compiled in the same manner after detachment by trail-less movement, or change of location (“setLoc(posX, posY)” call).\n\nBuilt-in commands:\n\npenDown() -> movement leaves a trail\npenUp() -> movement is trail-less\nmove(length) -> translates by length in current direction\nrotate(degrees) -> rotates \nrename(oldName, newName) -> renames a compiled function\nsetLoc(posX, posY) -> sets location\nsetRot(degree) -> sets rotation by degrees\nsetRot(vecX,vecY) -> sets rotation by direction vector\nsetColor(color) -> sets drawing color\nresetColor() -> resets to default color\nsetColorVertex(color) -> sets color of vertices\nprintAll() -> prints all compiled functions\nclear() -> clears the terminal\n%--------------------------------------------\n";	
 	
 	public static Poly getPoly(){
 		return poly;
@@ -110,17 +112,24 @@ public class Display {
 		content.setLayout(new BorderLayout());
 		
 		
+		
 		poly=new Poly();
 		jText=new JTextArea();
 		jText.setEditable(false);
 		input=new JTextField();
+		
+		jText.setWrapStyleWord(true);
+		  jText.setLineWrap(true);
+		
+		JScrollPane scrollBar = new JScrollPane(jText, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		DefaultCaret caret = (DefaultCaret)jText.getCaret();
+		 caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
 		JPanel rightPanel=new JPanel();
 		rightPanel.setLayout(new BorderLayout());
 		rightPanel.add(input,BorderLayout.SOUTH);
 		input.addKeyListener(terminal);
 		
-		JScrollPane jScrol=new JScrollPane(jText);
-		rightPanel.add(jScrol,BorderLayout.CENTER);
+		rightPanel.add(scrollBar,BorderLayout.CENTER);
 		JSplitPane jSplit=new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,poly, rightPanel);
 		jSplit.setOneTouchExpandable(true);
 		info=new JLabel();
@@ -180,12 +189,13 @@ public class Display {
 		
 		content.add(buttons,BorderLayout.NORTH);
 		frame.setSize(1100, 700);
-		jSplit.setDividerLocation(Util.round(frame.getWidth()*2/3));
-		Dimension minimumSize = new Dimension(Util.round(frame.getWidth()*1/3), 0);
-		jScrol.setMinimumSize(minimumSize);
+		jSplit.setDividerLocation(Util.round(frame.getWidth()*6/9));
+		Dimension minimumSize = new Dimension(Util.round(frame.getWidth()*3/9), 0);
+		scrollBar.setMinimumSize(minimumSize);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 		poly.initial();
+		printTerminal(welcome);
 		info.setText("X: / Y: /");
 	}
 	
