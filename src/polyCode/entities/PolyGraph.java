@@ -1,5 +1,6 @@
 package polyCode.entities;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 import polyCode.math.Stat;
@@ -10,6 +11,7 @@ public class PolyGraph {
 	ArrayList<double[]> unitVectors;
 	ArrayList<Double> lengths;
 	ArrayList<Double> angles;
+	ArrayList<Color> colors;
 	
 	int[] start;
 	boolean closed;
@@ -21,6 +23,7 @@ public class PolyGraph {
 		this.angles=new ArrayList<Double>();
 		unitVectors=new ArrayList<double[]>();
 		lengths=new ArrayList<Double>();
+		colors=new ArrayList<Color>();
 	}
 	
 	public void addVec(double[] vec){
@@ -29,6 +32,14 @@ public class PolyGraph {
 	
 	public void addLength(double r){
 		lengths.add(r);
+	}
+	public void addColor(Color c){
+		colors.add(c);
+	}
+	
+	public void uniformColor(Color c){
+		if(colors==null)colors=new ArrayList<Color>();
+		for(int i=0;i<lengths.size();i++) colors.add(c);
 	}
 	
 	public boolean isClosed(){

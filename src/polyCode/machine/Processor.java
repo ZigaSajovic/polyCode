@@ -1,5 +1,7 @@
 package polyCode.machine;
 
+import java.awt.Color;
+
 import polyCode.entities.Display;
 
 public class Processor {
@@ -9,7 +11,30 @@ public class Processor {
 			return;
 		}
 		Command tmp;
-		if(c.type.equals("rename")){
+		if(c.type.equals("resetColor")){
+			if(c.vars==null||c.vars.size()==0){
+				Display.getPoly().resetColor();
+				}
+			else Display.printTerminal("Error: command:! "+c.type+" ! takes no arguments\n");
+		}
+		else if(c.type.equals("setColorVertex")){
+			if(c.vars!=null&&c.vars.size()==1){
+				Color tmpC=Parser.getColor(c.vars.get(0).value);
+				if(tmpC!=null)Display.getPoly().changeColorVertex(tmpC);
+				else Display.printTerminal("Error: color :! "+c.vars.get(0).value+" is not a valid selection !\n");
+			}
+			else Display.printTerminal("Error: conflicting number of arguments with command :! "+c.type+" !\n");
+		}
+		else if(c.type.equals("setColor")){
+			if(c.vars!=null&&c.vars.size()==1){
+				Color tmpC=Parser.getColor(c.vars.get(0).value);
+				if(tmpC!=null)Display.getPoly().changeColor(tmpC);
+				else Display.printTerminal("Error: color :! "+c.vars.get(0).value+" is not a valid selection !\n");
+			}
+			else Display.printTerminal("Error: conflicting number of arguments with command :! "+c.type+" !\n");
+		}
+		
+		else if(c.type.equals("rename")){
 			if(c.vars!=null&&c.vars.size()==2){
 				Command temp;
 				if((temp=Display.getPoly().getFunction(c.vars.get(0).value))!=null){
@@ -90,4 +115,5 @@ public class Processor {
 		}
 		else Display.printTerminal("Error: no such command:! "+c.type+" !\n");
 	}
+	
 }

@@ -1,5 +1,7 @@
 package polyCode.machine;
 
+import java.awt.Color;
+
 import polyCode.entities.Display;
 
 public class Parser {
@@ -45,6 +47,19 @@ public class Parser {
 			out.addVar(new Variable((param[j]),"/"));
 		}
 		return out;
+	}
+	
+	public static Color getColor(String s){
+		if(s.toLowerCase().equals("red")) return Color.RED;
+		else if(s.toLowerCase().equals("blue")) return Color.BLUE;
+		else if(s.toLowerCase().equals("black")) return Color.BLACK;
+		else if(s.toLowerCase().equals("cyan")) return Color.CYAN;
+		else if(s.toLowerCase().equals("green")) return Color.GREEN;
+		else if(s.toLowerCase().equals("magenta")) return Color.MAGENTA;
+		else if(s.toLowerCase().equals("orange")) return Color.ORANGE;
+		else if(s.toLowerCase().equals("pink")) return Color.PINK;
+		else if(s.toLowerCase().equals("yellow")) return Color.YELLOW;
+		return null;
 	}
 	
 	public static void main(String[] args){

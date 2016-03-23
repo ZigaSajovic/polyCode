@@ -73,6 +73,19 @@ public class Poly extends DrawPad{
 		super.paintComponent(g);
 	}
 	
+	public void changeColor(Color c){
+		draw=c;
+	}
+	
+	public void changeColorVertex(Color c){
+		vertices=c;
+	}
+	
+	public void resetColor(){
+		draw=Color.RED;
+		vertices=Color.BLUE;
+	}
+	
 	public boolean beenDrawn(){
 		return vertex.size()!=0;
 	}
@@ -186,6 +199,7 @@ public class Poly extends DrawPad{
 				if(Comparator.diff(tempPoly, tempPoly2)){
 					toCompile.set(i,tempPoly2);
 					toCompile.get(i).generateAngles();
+					toCompile.get(i).uniformColor(draw);
 				}
 			}
 		}
@@ -200,26 +214,20 @@ public class Poly extends DrawPad{
 	
 	public void drawPolys(){
 		for(int i=0;i<polysToDraw.size();i++){
-			drawPolys(polysToDraw.get(i));
-		}
-	}
-	public void drawPolys(Color c){
-		for(int i=0;i<polysToDraw.size();i++){
-			drawPolyObject(polysToDraw.get(i),c);
+			drawPolyObject(polysToDraw.get(i));
 		}
 	}
 	
-	public void drawPolys(PolyGraph a){
-		drawPolyObject(a,draw);
-	}
-	
-	public void drawPolyObject(PolyGraph a,Color c){
+	public void drawPolyObject(PolyGraph a){
 		double[] x=new double[2];
 		Color temp=g2.getColor();
-		if(c!=null)g2.setColor(c);
+		g2.setColor(draw);
 		x[0]=a.start[0];
 		x[1]=a.start[1];
 		for(int i=0;i<a.lengths.size();i++){
+			if(a.colors!=null&&a.colors.size()==a.lengths.size()){
+				g2.setColor(a.colors.get(i));
+			}
 			double[] y=Vec.sumD(x, Vec.prod(a.unitVectors.get(i), a.lengths.get(i)));
 			g2.drawLine((int)x[0], (int)x[1], (int)y[0], (int)y[1]);
 			x=y;
@@ -249,7 +257,7 @@ public class Poly extends DrawPad{
 		drawPolys();
 		if(Display.drawVertices.isSelected()) drawPolysVertex();
 		if(current!=null) {
-			drawPolys(current);
+			drawPolyObject(current);
 			if(Display.drawVertices.isSelected()) drawPolyVertex(current);
 		}
 		drawPoly();
@@ -326,6 +334,7 @@ public class Poly extends DrawPad{
 		if(penDown){
 			if(current==null) createPoly();
 			current.lengths.add(length);
+			current.colors.add(draw);
 			current.unitVectors.add(Util.copyTab(unitDirVec));
 		}
 		else if(!penDown&&current!=null)detachPoly();
