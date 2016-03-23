@@ -1,9 +1,9 @@
 # polyCode
 AI driven programming language, compiling images to code and code to images.
 
-Draw a simple polygon to test. _polyCode_ will enforce symmetries allowed by the preservation of structure, employing them to use loops during compilation. Compiled function will be displayed on the terminal, in the form “objectN(posX, posY, rotDeg)”, where N stands for the object's ID. All such functions may be called on.
+Draw a simple polygon to test. _polyCode_ will enforce symmetries allowed by the preservation of structure, employing them to use loops during compilation. Compiled function will be displayed on the terminal, in the form _objectN(posX, posY, rotDeg)_, where N stands for the object's ID. All such functions may be called on.
 
-Objects drawn by the moving “poly”,  are compiled in the same manner after detachment by trail-less movement, or change of location (“setLoc(posX, posY)” call).
+Objects drawn by the moving “poly”,  are compiled in the same manner after detachment by trail-less movement, or change of location (_setLoc(posX, posY)_ call).
 
 Built-in commands:
 
