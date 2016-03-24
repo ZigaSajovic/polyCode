@@ -35,7 +35,7 @@ clear() -> clears the terminal
 
 ###The mechanism 
 
-_polyCode_ employs the author's ongoing research on dynamic relational nets in it’s most basic form, where the _pullback-space_  and the _vertex-space_ both contain only one element, namely the linear function and the identity operator. This model allows simple modeling of graphs embedded in R^n.
+_polyCode_ employs the author's ongoing research on dynamic relational nets in it’s most basic form, where the _pullback-space on one-forms_  and the _vertex-space_ both contain only one element, namely the linear function and the identity operator. This model allows simple modeling of graphs embedded in R^n.
 
 By defining appropriate equivalence relations, the set of all isomorphisms is constructed, generating all isomorphic objects under said relations. Thus, constraints may be enforced upon these objects, while preserving their initial structure, as mapped by the isomorphisms.
 
