@@ -42,7 +42,7 @@ public class Display {
 	boolean beenDone =false;
 	static JTextArea jText;
 	JTextField input;
-	String welcome="polyCode by Žiga Sajovic\n\nAI driven programming language, compiling images to code and code to images.\nDraw a simple polygon to test; polyCode enforces symmetries allowed by the preservation of structure, employing them for the usage of loops during compilation. Compiled functions are displayed in the terminal, in the form “objectN(posX, posY, rotDeg)”, where N stands for the object's ID. All such functions may be called on.\nObjects drawn by the moving “poly”,  are compiled in the same manner after detachment by trail-less movement, or change of location (“setLoc(posX, posY)” call).\n\nBuilt-in commands:\n\npenDown() -> movement leaves a trail\npenUp() -> movement is trail-less\nmove(length) -> translates by length in current direction\nrotate(degrees) -> rotates \nrename(oldName, newName) -> renames a compiled function\nsetLoc(posX, posY) -> sets location\nsetRot(degree) -> sets rotation by degrees\nsetRot(vecX,vecY) -> sets rotation by direction vector\nsetColor(color) -> sets drawing color\nresetColor() -> resets to default color\nsetColorVertex(color) -> sets color of vertices\nprintAll() -> prints all compiled functions\nclear() -> clears the terminal\n%--------------------------------------------\n";	
+	String welcome="polyCode by Žiga Sajovic\n\nAI driven programming language, compiling images to code and code to images.\nDraw a simple polygon to test; polyCode enforces symmetries in the image, while preserving it's initial structure, employing them for the usage of loops during compilation. Compiled functions are displayed in the terminal in the form “objectN(posX, posY, rotDeg)”, where N stands for the object's ID. All such functions may be called on.\nObjects drawn by the moving “poly”,  are compiled in the same manner after detachment by trail-less movement, or change of location (“setLoc(posX, posY)” call).\n\nBuilt-in commands:\n\npenDown() -> movement leaves a trail\npenUp() -> movement is trail-less\nmove(length) -> translates by length in current direction\nrotate(degrees) -> rotates \nrename(oldName, newName) -> renames a compiled function\nsetLoc(posX, posY) -> sets location\nsetRot(degree) -> sets rotation by degrees\nsetRot(vecX,vecY) -> sets rotation by direction vector\nsetColor(color) -> sets drawing color\nresetColor() -> resets to default color\nsetColorVertex(color) -> sets color of vertices\nprintAll() -> prints all compiled functions\nclear() -> clears the terminal\n%--------------------------------------------\n";	
 	
 	public static Poly getPoly(){
 		return poly;
@@ -119,7 +119,7 @@ public class Display {
 		input=new JTextField();
 		
 		jText.setWrapStyleWord(true);
-		  jText.setLineWrap(true);
+		jText.setLineWrap(true);
 		
 		JScrollPane scrollBar = new JScrollPane(jText, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		DefaultCaret caret = (DefaultCaret)jText.getCaret();
