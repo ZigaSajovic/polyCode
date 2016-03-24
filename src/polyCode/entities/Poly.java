@@ -196,9 +196,9 @@ public class Poly extends DrawPad{
 				if(Comparator.diff(tempPoly, tempPoly2)){
 					toCompile.set(i,tempPoly2);
 					toCompile.get(i).generateAngles();
-					toCompile.get(i).uniformColor(draw);
 				}
 			}
+			toCompile.get(i).uniformColor(draw);
 		}
 	}
 	
