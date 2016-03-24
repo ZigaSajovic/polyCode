@@ -150,12 +150,9 @@ public class Poly extends DrawPad{
 		if(current!=null) detachPoly();
 		location[0]=(int)x;
 		location[1]=(int)y;
+		locationCheck();
 	}
-	
-	public void setPolyRotation(double x, double y){
-		double[] tmp={x,y};
-		setRot(Vec.normalize(tmp,2));
-	}
+
 	
 	private void compilePolyToFunction(PolyGraph poly, boolean print){
 		Command temp=Compiler.compile(poly,functionCount);
@@ -301,6 +298,14 @@ public class Poly extends DrawPad{
 		if(current!=null) detachPoly();
 		location[0]=x;
 		location[1]=y;
+		locationCheck();
+	}
+	
+	public void locationCheck(){
+		if(location[0]<30)location[0]=30;
+		else if(location[0]-30>getWidth())location[0]=getWidth()-30;
+		if(location[1]<30)location[1]=30;
+		else if(location[1]-30>getHeight())location[1]=getHeight()-30;
 	}
 	
 	
@@ -318,24 +323,28 @@ public class Poly extends DrawPad{
 		double[] tempDir=new double[2];
 		tempDir[0]=Math.cos(Math.toRadians(deg));
 		tempDir[1]=Math.sin(Math.toRadians(deg));
-		
-		double degree=Math.toDegrees(Vec.dotProd(tempDir, unitDirVec));
+		double degree=Math.toDegrees(Math.acos(Vec.dotProd(tempDir, unitDirVec))); 
 		if(unitDirVec[0]*tempDir[1]-unitDirVec[1]*tempDir[0]<0)degree*=-1;
 		rotatePoly(degree);
 	}
 	
 	public void setRot(double[] temp){
-		double degree=Math.toDegrees(Vec.dotProd(temp, unitDirVec));
+		double degree=Math.toDegrees(Math.acos(Vec.dotProd(temp, unitDirVec))); 
 		if(unitDirVec[0]*temp[1]-unitDirVec[1]*temp[0]>0)degree*=-1;
 		rotatePoly(degree);
+	}
+	
+	public void setPolyRotation(double x, double y){
+		double[] tmp={x,y};
+		setRot(Vec.normalize(tmp,2));
 	}
 	
 	public void movePoly(double length){	
 		int newX=location[0]+ (int)(unitDirVec[0]*length);
 		int newY=location[1]+ (int)(unitDirVec[1]*length);
-		if(newX<0)newX=30;
+		if(newX<30)newX=30;
 		else if(newX-30>getWidth())newX=getWidth()-30;
-		if(newY<0)newY=30;
+		if(newY<30)newY=30;
 		else if(newY-30>getHeight())newY=getHeight()-30;
 		double dist=Math.sqrt(Math.pow((newX-location[0]), 2)+Math.pow((newY-location[1]), 2));
 		if(penDown){
@@ -364,6 +373,7 @@ public class Poly extends DrawPad{
 	public void setPolyLocation(int[] location) {
 		if(current!=null) detachPoly();
 		Poly.location = location;
+		locationCheck();
 	}
 	
 	public void detachPoly(){
