@@ -165,6 +165,15 @@ public class PolyGraph {
 		return out;
 	}
 	
+	public double[] getEndPointRelative(){
+		double[] out=new double[2];
+		for(int i=0;i<unitVectors.size();i++){
+			out[0]+=unitVectors.get(i)[0]*lengths.get(i);
+			out[1]+=unitVectors.get(i)[1]*lengths.get(i);
+		}
+		return out;
+	}
+	
 	
 	public void print(){
 		System.out.println("Unit Vectors");

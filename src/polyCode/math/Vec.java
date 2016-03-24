@@ -6,6 +6,15 @@ public class Vec {
 		return a[0]*b[0]+a[1]*b[1];
 	}
 	
+	public static double distance(double[] a, double[] b){
+		if(a.length!=b.length)return -1;
+		double sum=0;
+		for(int i=0;i<a.length;i++){
+			sum+=Math.pow((a[i]-b[i]), 2);
+		}
+		return Math.sqrt(sum);
+	}
+	
 	public static double[] prod(double[] a,double b){
 		double[] out=new double[2];
 		out[0]=a[0]*b;
@@ -41,10 +50,24 @@ public class Vec {
 		return out;
 	}
 	
+	public static double[] sub(int[] a,double[] b){
+		double[] out=new double[2];
+		out[0]=a[0]+b[0];
+		out[1]=a[1]+b[1];
+		return out;
+	}
+	
 	public static int[] subInt(int[] a,int[] b){
 		int[] out=new int[2];
 		out[0]=a[0]-(int)b[0];
 		out[1]=a[1]-(int)b[1];
+		return out;
+	}
+	
+	public static double[] sub(double[] a,double[] b){
+		double[] out=new double[2];
+		out[0]=a[0]-b[0];
+		out[1]=a[1]-b[1];
 		return out;
 	}
 	

@@ -189,14 +189,22 @@ public class Poly extends DrawPad{
 	
 	public void optimizePoly(){
 		for(int i=0;i<toCompile.size();i++){
-			if(toCompile.get(i).closed){
-				PolyHandler temp=new PolyHandler(toCompile.get(i));
-				PolyGraph tempPoly=new PolyGraph(toCompile.get(i).getLengths(), toCompile.get(i).getUnitVectors(), toCompile.get(i).getStart(), toCompile.get(i).getCenter(), toCompile.get(i).isClosed());
-				PolyGraph tempPoly2=temp.updatePoly();
-				if(Comparator.diff(tempPoly, tempPoly2)){
-					toCompile.set(i,tempPoly2);
-					toCompile.get(i).generateAngles();
+			if(!toCompile.get(i).closed){
+				double[] tmp=Vec.prod(toCompile.get(i).getEndPointRelative(),-1);
+				toCompile.get(i).addLength(Vec.normDouble(tmp));
+				toCompile.get(i).addVec(Vec.normalize(tmp, 2));
+			}
+			PolyHandler temp=new PolyHandler(toCompile.get(i));
+			PolyGraph tempPoly=new PolyGraph(toCompile.get(i).getLengths(), toCompile.get(i).getUnitVectors(), toCompile.get(i).getStart(), toCompile.get(i).getCenter(), toCompile.get(i).isClosed());
+			PolyGraph tempPoly2=temp.updatePoly();
+			if(Comparator.diff(tempPoly, tempPoly2)){
+				if(!toCompile.get(i).closed){
+					tempPoly2.lengths.remove(tempPoly2.lengths.size()-1);
+					tempPoly2.unitVectors.remove(tempPoly2.unitVectors.size()-1);
 				}
+				tempPoly2.updateCenter();
+				toCompile.set(i,tempPoly2);
+				toCompile.get(i).generateAngles();
 			}
 			toCompile.get(i).uniformColor(draw);
 		}
