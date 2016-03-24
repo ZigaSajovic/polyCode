@@ -45,5 +45,6 @@ The interpretation of shape as a distribution is used as a metric of similarity 
 
 ![demoImageToCode2](/demos/demoImageToCode2.gif?raw=true "demoImageToCode2")
 ![demoImageToCode](/demos/demoImageToCode.gif?raw=true "demoImageToCode")
+![demoCodeToImage](/demos/demoCodeToImage.gif?raw=true "demoCodeToImage")
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">polyCode</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://si.linkedin.com/in/zigasajovic" property="cc:attributionName" rel="cc:attributionURL">Žiga Sajovic</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
