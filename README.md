@@ -41,6 +41,8 @@ By defining appropriate equivalence relations, the set of all isomorphisms is co
 
 The interpretation of shape as a distribution, is used as a metric of similarity between such objects, allowing further classification within isomorphisms through convergence of characteristic functions.
 
+###Demos
+
 ![demoImageToCode2](/demos/demoImageToCode2.gif?raw=true "demoImageToCode2")
 ![demoImageToCode](/demos/demoImageToCode.gif?raw=true "demoImageToCode")
 
