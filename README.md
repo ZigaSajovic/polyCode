@@ -1,7 +1,7 @@
 # polyCode
 AI driven programming language, compiling images to code and code to images.
 
-Draw a simple polygon to test; _polyCode_ enforces symmetries allowed by the preservation of structure, employing them for the usage of loops during compilation. Compiled functions are displayed in the terminal, in the form _objectN(posX, posY, rotDeg)_, where N stands for the object's ID. All such functions may be called on.
+Draw a simple polygon to test; _polyCode_ enforces symmetries in the image, while preserving it's initial structure, employing them for the usage of loops during compilation. Compiled functions are displayed in the terminal, in the form _objectN(posX, posY, rotDeg)_, where N stands for the object's ID. All such functions may be called on.
 
 Objects drawn by the moving _poly_,  are compiled in the same manner after detachment by trail-less movement, or change of location (_setLoc(posX, posY)_ call).
 
@@ -39,7 +39,7 @@ _polyCode_ employs the author's ongoing research on dynamic relational nets in i
 
 By defining appropriate equivalence relations, the set of all isomorphisms is constructed, generating all isomorphic objects under said relations. Thus, constraints may be enforced upon these objects, while preserving their initial structure, as mapped by the isomorphisms.
 
-The interpretation of shape as a distribution, is used as a metric of similarity between such objects, allowing further classification within isomorphisms through convergence of characteristic functions.
+The interpretation of shape as a distribution is used as a metric of similarity between such objects, allowing further classification within isomorphisms through convergence of characteristic functions.
 
 ###Demos
 
