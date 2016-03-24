@@ -1,15 +1,10 @@
 package polyCode.entities;
 
-import java.applet.Applet;
-import java.awt.Graphics;
+public class Main{
+	 	
+	public static void main(String[] args){
+		new Display().show();
+	}
 
-public class Main extends Applet{
-	   /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
-	public void paint(Graphics g){
-	      new Display().show();
-	   }
 	}
