@@ -1,5 +1,5 @@
 # polyCode
-AI driven programming language, compiling images to code and code to images.
+_AI_ driven programming language, compiling images to code and code to images.
 
 Draw a simple polygon to test; _polyCode_ enforces symmetries in the image, while preserving it's initial structure, employing them for the usage of loops during compilation. Compiled functions are displayed in the terminal, in the form _objectN(posX, posY, rotDeg)_, where N stands for the object's ID. All such functions may be called on.
 
