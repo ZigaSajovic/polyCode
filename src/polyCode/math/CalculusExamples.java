@@ -198,11 +198,4 @@ public class CalculusExamples {
 			System.out.println(d.get(i));
 		}
 	}
-	
-	public static void main(String[] args){
-		derivativeExample(equationExample6());
-		//derivativesExample();
-		
-	}
-
 }

@@ -61,12 +61,5 @@ public class Parser {
 		else if(s.toLowerCase().equals("yellow")) return Color.YELLOW;
 		return null;
 	}
-	
-	public static void main(String[] args){
-		String s="rotate(1,2)";
-		Command c=parseCommand(s);
-		if(c!=null)c.print(0);
-		else System.out.println("opa");
-	}
 
 }

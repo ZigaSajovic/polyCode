@@ -198,10 +198,6 @@ public class Display {
 		printTerminal(welcome);
 		info.setText("X: / Y: /");
 	}
-	
-	public static void main(String[] args){
-		new Display().show();
-	}
 
 	public static JComboBox<Object> getComboBox() {
 		return comboBox;
