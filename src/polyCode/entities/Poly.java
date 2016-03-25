@@ -265,6 +265,7 @@ public class Poly extends DrawPad{
 			drawPolyObject(current);
 			if(Display.drawVertices.isSelected()) drawPolyVertex(current);
 		}
+		if(vertex.size()!=0)drawInitialDrawing();
 		drawPoly();
 		repaint();
 	}

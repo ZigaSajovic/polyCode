@@ -58,6 +58,9 @@ public class Display {
 	
 	ActionListener listener=new ActionListener(){	
 		public void actionPerformed(ActionEvent e){
+			if(e.getSource()==drawVertices){
+				poly.render();
+			}
 			if(e.getSource()==clearButton) {
 				poly.clear();
 				beenDone=false;
