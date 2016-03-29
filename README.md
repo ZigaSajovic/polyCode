@@ -41,6 +41,12 @@ By defining appropriate equivalence relations, the set of all isomorphisms is co
 
 The interpretation of shape as a distribution is used as a metric of similarity between such objects, allowing further classification within isomorphisms through convergence of characteristic functions.
 
+###How to run
+
+Hosted on <a rel="thisPage" href="https://github.com/ZigaSajovic/polyCode">_gitHub_</a> is a pre-prepared _eclipse project_ ready to be imported. Classes are sorted in appropriate pacages for conveniant editing and running.
+
+Hosted on <a rel="downloadLink" href="https://www.dropbox.com/s/mvau76wpxix090i/polyCode.jar?dl=0">_dropbox_</a>  is a runnable _.jar_ file.
+
 ###Demos
 
 ![demoImageToCode2](/demos/demoImageToCode2.gif?raw=true "demoImageToCode2")
