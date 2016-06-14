@@ -5,6 +5,14 @@ Draw a simple polygon to test; _polyCode_ enforces symmetries in the image, whil
 
 Objects drawn by the moving _poly_,  are compiled in the same manner after detachment by trail-less movement, or change of location (_setLoc(posX, posY)_ call).
 
+###The mathematics 
+
+_polyCode_ employs the author's ongoing research on dynamic relational nets in it’s most basic form, where the _pullback-space on one-forms_  and the _vertex-space_ both contain only one element, namely the linear function and the identity operator. This model allows simple modeling of embedded graphs.
+
+By defining appropriate equivalence relations, the set of all isomorphisms is constructed, generating all isomorphic objects under said relations. Thus, constraints may be enforced upon these objects, while preserving their initial structure, as mapped by the isomorphisms.
+
+The interpretation of shape as a distribution is used as a metric of similarity between such objects, allowing further classification within isomorphisms through convergence of characteristic functions.
+
 ####Built-in commands:
 
 penDown() -> movement leaves a trail
@@ -32,14 +40,6 @@ setColorVertex(color) -> sets color of vertices
 printAll() -> prints all compiled functions
 
 clear() -> clears the terminal
-
-###The mechanism 
-
-_polyCode_ employs the author's ongoing research on dynamic relational nets in it’s most basic form, where the _pullback-space on one-forms_  and the _vertex-space_ both contain only one element, namely the linear function and the identity operator. This model allows simple modeling of embedded graphs.
-
-By defining appropriate equivalence relations, the set of all isomorphisms is constructed, generating all isomorphic objects under said relations. Thus, constraints may be enforced upon these objects, while preserving their initial structure, as mapped by the isomorphisms.
-
-The interpretation of shape as a distribution is used as a metric of similarity between such objects, allowing further classification within isomorphisms through convergence of characteristic functions.
 
 ###How to run
 
