@@ -13,6 +13,8 @@ By defining appropriate equivalence relations, the set of all isomorphisms is co
 
 The interpretation of shape as a distribution is used as a metric of similarity between such objects, allowing further classification within isomorphisms through convergence of characteristic functions.
 
+It employs [javaCalculus](https://github.com/ZigaSajovic/javaCalculus) library developed by the author.
+
 ####Built-in commands:
 
 penDown() -> movement leaves a trail
